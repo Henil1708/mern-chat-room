@@ -1,9 +1,9 @@
-import Login from "./pages/Login";
-
+import { RouterProvider } from "react-router-dom";
+import routes from "./router"
 function App() {
   return (
     <div className="bg-[#282c34] h-screen">
-        <Login />
+        <RouterProvider router={routes} />
     </div>
   );
 }
