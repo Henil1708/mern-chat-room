@@ -1,0 +1,9 @@
+{
+	"default": "There is something wrong. Please try again later",
+	"welcome_msg": "Welcome to 1635 API...!",
+	"validation_error": "Please check the errors",
+	"unauthorized_access": "You are unauthorized to access this data",
+	"invalid_credentials": "Invalid Email/Password",
+	"no_user_exist": "There is no user exist with given id",
+	"user_logut_success": "You have been logged out successfully"
+}
