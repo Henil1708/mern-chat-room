@@ -35,7 +35,7 @@ const RoomPage = () => {
             isMenuOpen && <div className='bg-white right-8 rounded-b-md z-50 max-w-[250px] w-full shadow-2xl absolute top-[100%]'>
             <ul className='divide-y-[1px]' onClick={handleMenuToggle}>
                 <li className='p-5 hover:bg-gray-100 cursor-pointer' onClick={handlIsAddMember}>Add member</li>
-                <li className=''><Link to={"/room/alkjdsf/edit"}><p className='p-5 hover:bg-gray-100 cursor-pointer'>Edit room name</p></Link></li>
+                <li className=''><Link to={`/room/${roomId}/edit`}><p className='p-5 hover:bg-gray-100 cursor-pointer'>Edit room name</p></Link></li>
                 <li className='p-5 hover:bg-gray-100 cursor-pointer text-red-500'>Delete room</li>
             </ul>
         </div>

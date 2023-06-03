@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {useFormik} from 'formik';
 import CustomInput from '../../shared/components/CustomInput';
 import { signInSchema } from '../../utils/schema/auth';
 import CustomButton from '../../shared/components/CustomButton';
+import auth from '../../utils/services/auth';
+import { errorResponseHelper } from '../../utils/helpers/response';
 
 const loginInitialVal = {
   email: '',
@@ -11,15 +13,24 @@ const loginInitialVal = {
 }
 
 const Login = () => {
+
+  const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false);
   const {errors, handleBlur, handleChange, handleSubmit, values} = useFormik({
     initialValues: loginInitialVal,
     validationSchema: signInSchema,
-    onSubmit:async () =>{
-      setIsLoading(true);
-      // 
-      // TODO: add post api call
-      // 
+    onSubmit:async (values) =>{
+      try {
+
+        setIsLoading(true);
+
+        const {access_token} = await auth.signIn(values);
+
+        localStorage.setItem('access_token', access_token)
+        navigate("/")
+      } finally{
+        setIsLoading(false);
+      }
 
     }
   })
