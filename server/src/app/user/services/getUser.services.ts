@@ -27,6 +27,11 @@ const getUserService = async (container: any) => {
             }
         } = container;
 
+        delete logged_in_user["password"];
+
+        container.output.result = logged_in_user;
+        
+
         return container;
 
     } catch (error) {

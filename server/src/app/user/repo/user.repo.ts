@@ -21,8 +21,10 @@ class UserRepo {
     async saveUserData(data: any) {
         try {
 
-            await knex(`${config.schema.USERS}.${config.tables.USER}`)
-                .insert(data);
+            const [user] = await knex(`${config.schema.USERS}.${config.tables.USER}`)
+                .insert(data, "*");
+
+                return user;
 
         } catch (error) {
 
@@ -108,6 +110,33 @@ class UserRepo {
             return user;
 
         } catch (error) {
+
+            throw error;
+
+        }
+
+    }
+
+    /*============================
+    😎 @author: Henil Mehta
+    🚩 @uses: check unique email
+    🗓 @created: 03/06/2022
+    ============================*/
+    async isEmailExist(email: string, user_uuid?:string) {
+
+        try {
+
+            const [user] =await knex(`${config.schema.USERS}.${config.tables.USER}`)
+                .where('email',email);
+
+
+            if(user) {
+                const err:any = new Error(i18n.__('auth.email_already_exists'));
+                err.statusCode = StatusCodes.BAD_REQUEST;
+                throw err;
+            } 
+
+        } catch(error) {
 
             throw error;
 

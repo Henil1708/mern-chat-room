@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config()
- 
+
 
 export default {
     "app": {
@@ -25,6 +25,9 @@ export default {
     },
     "tables": {
 		USER:'user',
-        USER_SOCKET:'user_socket'
+        USER_SOCKET:'user_socket',
+        ROOMS: 'rooms',
+        ROOM_MEMBERS: "room_members",
+        ROOM_CHATS: "room_chats"
     }
 };

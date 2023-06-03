@@ -55,7 +55,7 @@ class UserController{
         } catch (error: any) {
 
             res.status(await responseHelper.getStatusCode(error))
-                .json(await responseHelper.getFirebaseError(error));
+                .json(await responseHelper.validationErrorResponse(error));
 
         }
     }

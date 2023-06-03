@@ -2,7 +2,9 @@ import express from "express";
 
 import auth from "../app/auth/route/auth.route";
 
-import user from "../app/user/route/user.route"
+import user from "../app/user/route/user.route";
+
+import chat from "../app/chat/route/chat.route";
 
 import i18n from "../config/i18n";
 
@@ -18,5 +20,6 @@ app.use(path + "/auth", auth);
 
 app.use(path + "/user", user);
 
+app.use(path + "/room", chat)
 
 export = app;

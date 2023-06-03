@@ -14,7 +14,7 @@ const up = async(knex) => {
 		table.string('email',100).nullable();
 		table.string('password',254).nullable();
 		table.datetime('last_login').nullable();
-		table.enu('status',['ACTIVE','DEACTIVE','OCCUPIED']).nullable();
+		table.enu('status',['ACTIVE','DEACTIVE']).nullable();
 		table.datetime('created_at').defaultTo(knex.fn.now());
 		table.datetime('updated_at').nullable();
 

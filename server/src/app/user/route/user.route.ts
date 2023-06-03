@@ -10,10 +10,14 @@ import { validator } from '../../../helpers/_validator.helper';
 
 // Import Controllers
 import userController from '../controller/user.controller';
+import passportAuth from '../../../middleware/passportAuth';
+import authorization from '../../../middleware/authorization';
 
 const app = express.Router();
 
 app.get("/me",
+    passportAuth.authenticateJwt,
+    authorization.isAuthenticated,
     userController.getUser
 );
 

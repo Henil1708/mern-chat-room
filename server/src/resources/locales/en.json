@@ -3,7 +3,15 @@
 	"welcome_msg": "Welcome to 1635 API...!",
 	"validation_error": "Please check the errors",
 	"unauthorized_access": "You are unauthorized to access this data",
-	"invalid_credentials": "Invalid Email/Password",
+	"invalid_credentials": "Invalid Email or Password",
 	"no_user_exist": "There is no user exist with given id",
-	"user_logut_success": "You have been logged out successfully"
+	"user_logut_success": "You have been logged out successfully",
+	"auth": {
+		"email_already_exists": "Email already exist"
+	},
+	"no_email_user_exist": "No use found with the given email",
+	"un_authorized": "un_authorized",
+	"room": {
+		"invalid": "Invalid room"
+	}
 }
