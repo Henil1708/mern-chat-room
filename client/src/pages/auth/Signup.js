@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import CustomInput from '../../shared/components/CustomInput';
 import { signUpSchema } from '../../utils/schema/auth';
 import { useFormik } from 'formik';
 import CustomButton from '../../shared/components/CustomButton';
 import auth from '../../utils/services/auth';
-import { errorResponseHelper } from '../../utils/helpers/response';
 
 const signUpInitialVal = {
   firstName: '',
@@ -17,7 +16,7 @@ const signUpInitialVal = {
 
 
 const Signup = () => {
-  const navigate = useNavigate()
+
   const [isLoading, setIsLoading] = useState(false);
   const {errors, handleBlur, handleChange, handleSubmit, values} = useFormik({
     initialValues: signUpInitialVal,
@@ -27,7 +26,7 @@ const Signup = () => {
         setIsLoading(true);
         const {access_token} = await auth.signUp(values)
         localStorage.setItem('access_token', access_token)
-        navigate("/")
+        window.location.reload()
       }finally{
 
         setIsLoading(false);

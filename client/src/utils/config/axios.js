@@ -12,6 +12,26 @@ axiosInstance.interceptors.response.use(
     },
     error => {
 
+        if(error.response){
+
+            switch(error.response.status){
+                case 401:
+                    localStorage.clear();
+                    window.location.reload()
+                break;
+                case 400: 
+                    errorResponseHelper(error.response.data.message);
+                break;
+            }
+
+        }else{
+
+            errorResponseHelper(error.message)
+
+        }
+
+        
+
         // Return a rejected Promise so that it propagates to the catch block
         return Promise.reject(error);
     }

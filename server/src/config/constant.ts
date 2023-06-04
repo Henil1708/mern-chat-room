@@ -27,7 +27,10 @@ export default {
 		USER:'user',
         USER_SOCKET:'user_socket',
         ROOMS: 'rooms',
-        ROOM_MEMBERS: "room_members",
         ROOM_CHATS: "room_chats"
+    },
+    "socket_events":{
+        ADD_ROOM: "add_room",
+        ADD_MESSAGE: "add_message"
     }
 };

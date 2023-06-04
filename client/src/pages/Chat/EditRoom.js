@@ -13,12 +13,27 @@ const EditRoom = () => {
     const {roomId} = useParams()
     const navigate = useNavigate()
     const [isCompLoading, setIsCompLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
+
     const {errors, handleBlur, handleSubmit, handleChange, values, setValues} = useFormik({
         initialValues: {
             title: ''
         },
         validationSchema: addRoomSchema,
-        onSubmit:async () => {
+        onSubmit:async (values) => {
+            setIsLoading(true)
+            try {
+
+                await chat.updateRoom(roomId,values)
+
+                navigate(`/room/${roomId}`);
+
+            } catch (error) {
+
+
+            }finally {
+                setIsLoading(false);
+            }
 
         }
     })
@@ -35,9 +50,7 @@ const EditRoom = () => {
         }catch(error){
             errorResponseHelper(error.response.data.message)
 
-            setTimeout(()=>{
-                navigate(-1);
-            }, 2000)
+            navigate(-1);
 
         }
 
@@ -47,7 +60,7 @@ const EditRoom = () => {
         
         fetchRoom();
 
-    }, [])
+    }, [roomId])
 
     return (
     <div className='h-full flex items-center justify-center bg-gray-200 '>
@@ -55,7 +68,7 @@ const EditRoom = () => {
             {
                 isCompLoading ? <Spinner /> : <>
                 <CustomInput type={'text'} handleBlur={handleBlur} error={errors.title} handleChange={handleChange} value={values.title} name={'title'} id={"title"} placeholder={"Room name"} />
-                <CustomButton title='Edit room' varient='fill' />
+                <CustomButton title='Edit room' varient='fill' isLoading={isLoading} />
                 </>
             }
             

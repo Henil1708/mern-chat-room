@@ -67,7 +67,7 @@ class SocketRepo {
                     socket.where('user_uuid', userUuid)
 
                 }
-                
+
             return await socket;
 
         } catch (error) {
@@ -105,9 +105,10 @@ class SocketRepo {
 
         try {
             
-            const socket = knex(`${config.schema.USERS}.${config.tables.USER_SOCKET}`)
-                .select(['socket_id','user_uuid'])
-                .where('socket_id', socketId);
+            const socket = knex(`${config.schema.USERS}.${config.tables.USER_SOCKET} as us`)
+                .select(['us.socket_id','us.user_uuid', 'u.uuid', 'u.first_name', 'u.last_name'])
+                .where('socket_id', socketId)
+                .join(`${config.schema.USERS}.${config.tables.USER} as u`, 'us.user_uuid' ,'u.uuid');
 
             return await socket;
 

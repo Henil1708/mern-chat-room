@@ -41,6 +41,7 @@ class UserController{
                     result: {}
                 }
             };
+            console.log("from get user");
             
             //
             //  get loggedIn user full profile and user active subscription

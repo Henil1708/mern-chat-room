@@ -1,6 +1,9 @@
 // import services
+import config from '../../../config/constant';
 
 // Import Repo
+import socketlib from "../../../library/socketlib";
+import socketRepo from "../../socket/repo/socket.repo";
 import chatRepo from "../repo/chat.repo";
 
 // Import Libraries
@@ -10,15 +13,18 @@ const createRoom = async (container:any) => {
 
     try {
 
+        const {
+            input:{
+                logged_in_user
+            }
+        } = container;
+
         // 
         // save room details 
         // 
         await saveRoom(container);
 
-        // 
-        // add logged in user to members table
-        // 
-        await saveMember(container);
+        socketlib.broadcastEventToAll(config.socket_events.ADD_ROOM, container.derived.roomDetails)
 
         container.output.result = container.derived.roomDetails;
 
@@ -56,41 +62,6 @@ const saveRoom = async (container:any) => {
 
     } catch (error) {
 
-        throw error;
-
-    }
-
-}
-
-/*============================
-😎 @author: Henil Mehta
-🚩 @uses: save member details  
-🗓 @created: 03/06/2023
-============================*/
-const saveMember = async (container:any) => {
-
-    try {
-        
-        const {
-            input:{
-                logged_in_user
-            },
-            derived:{
-                roomDetails
-            }
-        } = container;
-
-        const memberDetails = {
-            user_uuid: logged_in_user.uuid,
-            room_uuid: roomDetails.uuid,
-            created_by: logged_in_user.uuid,
-            created_at: moment.utc().format('YYYY-MM-DD HH:mm:ss')
-        }
-
-        container.derived.memberDetails = await chatRepo.saveRoomMemberDetails(memberDetails);
-
-    } catch (error) {
-        
         throw error;
 
     }

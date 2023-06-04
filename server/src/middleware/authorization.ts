@@ -23,7 +23,7 @@ import responseHelper from "../helpers/response.helper";
 
 class Authorization {
 
-    async isAuthenticated(req:any,res:Response,next:NextFunction) {
+    async isAuthenticated(req:any,res:any,next:NextFunction) {
 
         try {
 
@@ -38,9 +38,18 @@ class Authorization {
             next();
 
         } catch (error) {
+            
+            if(res.from && res.from === "socket"){
 
-            res.status(await responseHelper.getStatusCode(error))
+                throw error;
+
+            }else{
+
+                res.status(await responseHelper.getStatusCode(error))
                 .json(await responseHelper.validationErrorResponse(error));
+
+            }
+            
 
         }
 

@@ -1,7 +1,7 @@
 {
-  "name": "1635_api",
+  "name": "mern_chat_api",
   "version": "1.0.0",
-  "description": "API collection for 1635",
+  "description": "API collection for mern_chat",
   "main": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tibicle/1635_API.git"
+    "url": "https://github.com/Henil1708/mern-chat-room.git"
   },
-  "author": "Tibicle LLP",
-  "license": "ISC",
+  "author": "Henil Mehta",
+  "license": "MIT",
   "dependencies": {
     "@joi/date": "^2.1.0",
     "agora-access-token": "^2.0.4",
@@ -74,7 +74,7 @@
     "typescript": "^4.7.4"
   },
   "bugs": {
-    "url": "https://github.com/tibicle/1635_API/issues"
+    "url": "https://github.com/Henil1708/mern-chat-room.git/issues"
   },
-  "homepage": "https://github.com/tibicle/1635_API#readme"
+  "homepage": "https://github.com/Henil1708/mern-chat-room.git#readme"
 }

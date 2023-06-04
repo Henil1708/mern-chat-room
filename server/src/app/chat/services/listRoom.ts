@@ -6,7 +6,7 @@ import chatRepo from "../repo/chat.repo";
 
 // Import Libraries
 
-const getRoomDetails = async (container:any) => {
+const listRooms = async (container:any) => {
 
     try {
 
@@ -19,7 +19,7 @@ const getRoomDetails = async (container:any) => {
         // 
         // validate room by uuid
         // 
-        container.output.result = await  chatRepo.doesRoomExists(params.room_uuid);
+        container.output.result = await chatRepo.getAllRooms();
 
     } catch (error) {
         
@@ -29,4 +29,4 @@ const getRoomDetails = async (container:any) => {
 
 }
 
-export default getRoomDetails;
+export default listRooms;

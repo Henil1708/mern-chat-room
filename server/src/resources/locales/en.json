@@ -1,17 +1,19 @@
 {
 	"default": "There is something wrong. Please try again later",
-	"welcome_msg": "Welcome to 1635 API...!",
+	"welcome_msg": "Welcome to mern chat room API...!",
 	"validation_error": "Please check the errors",
 	"unauthorized_access": "You are unauthorized to access this data",
 	"invalid_credentials": "Invalid Email or Password",
 	"no_user_exist": "There is no user exist with given id",
 	"user_logut_success": "You have been logged out successfully",
 	"auth": {
-		"email_already_exists": "Email already exist"
+		"email_already_exists": "Email already exist",
+		"signup": "User sign up successfully"
 	},
 	"no_email_user_exist": "No use found with the given email",
-	"un_authorized": "un_authorized",
+	"un_authorized": "You are not authorized",
 	"room": {
-		"invalid": "Invalid room"
+		"invalid": "Invalid room",
+		"not_allowed": "You are not allowed to do this changes"
 	}
 }

@@ -3,6 +3,9 @@ import socketLib from "./library/socketlib";
 import config from "./config/constant";
 import * as http from "http";
 import { Server } from 'socket.io';
+import passportAuth from "./middleware/passportAuth";
+import authorization from "./middleware/authorization";
+import passport from "passport";
 
 	
 process.on("uncaughtException", (error) => {
@@ -18,7 +21,6 @@ const io = new Server(httpServer,{
 		methods: ["GET", "POST"]
 	}
 });
-
 
 httpServer.listen(config.app.PORT, () => {
 	console.log(`Server listening at ${config.app.PORT}`);

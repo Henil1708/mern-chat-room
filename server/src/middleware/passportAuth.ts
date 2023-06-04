@@ -126,7 +126,7 @@ class PassportAuth {
     🚩 @uses: user login  
     🗓 @created: 03/06/2023
     ============================*/
-    async loginUser(req:any, res:Response, next:NextFunction) {
+    async loginUser(req:any, res:any, next:NextFunction) {
         
         passport.authenticate('login', (err:any, user:any, info:any) => {
 

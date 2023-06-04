@@ -10,13 +10,16 @@ const userSlice = createSlice({
     setUser: (state, action) => {
         state.user = action.payload;
     },
-    removseUser: (state) => {
+    removeUser: (state) => {
         state = {user:null};
+
+        localStorage.clear()
+
     }
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, removeUser } = userSlice.actions;
 
 // Async action to fetch user data
 export const fetchUser = async (dispatch) => {
@@ -26,7 +29,7 @@ export const fetchUser = async (dispatch) => {
 
         dispatch(setUser(userDetails));
     } catch (error) {
-        throw error;
+      
     }
 };
 

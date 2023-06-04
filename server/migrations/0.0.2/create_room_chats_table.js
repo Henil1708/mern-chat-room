@@ -11,7 +11,7 @@ const up = async(knex) => {
 
 		table.uuid('uuid').primary().defaultTo(knex.raw('gen_random_uuid()'));
 		table.text('message').notNullable();
-		table.uuid('room_member_uuid').notNullable();
+		table.uuid('room_uuid').notNullable();
 		table.uuid('created_by').notNullable();
 		table.datetime('created_at').defaultTo(knex.fn.now());
 

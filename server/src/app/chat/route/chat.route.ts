@@ -17,11 +17,32 @@ app.post("/",
     chatController.createRoom
 );
 
+app.get("/",
+    passportAuth.authenticateJwt,
+    authorization.isAuthenticated,
+    chatController.listRooms
+);
+
+app.get("/:room_uuid/chats",
+    passportAuth.authenticateJwt,
+    authorization.isAuthenticated,
+    validator(chatSchema.getRoom), 
+    chatController.listChats
+);
+
 app.get("/:room_uuid",
     passportAuth.authenticateJwt,
     authorization.isAuthenticated,
     validator(chatSchema.getRoom), 
     chatController.getRoomDetails
+);
+
+app.put("/:room_uuid",
+    passportAuth.authenticateJwt,
+    authorization.isAuthenticated,
+    validator(chatSchema.getRoom),
+    validator(chatSchema.createRoom), 
+    chatController.updateRoom
 );
 
 export = app;

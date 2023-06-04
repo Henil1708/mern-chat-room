@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import router from "./routes/index";
 import i18n from "./config/i18n";
 import path from "path"
+import socketlib from "./library/socketlib";
 
 class App {
 	public express;

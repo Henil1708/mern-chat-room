@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 // Import your reducers here
 import userSlice from './slices/userSlice';
+import roomSlice from './slices/roomSlice';
 
 // const rootReducer = combineReducers({
 //     user: userSlice,
@@ -8,7 +9,8 @@ import userSlice from './slices/userSlice';
 
 const store = configureStore({
     reducer: {
-        user: userSlice
+        user: userSlice,
+        room: roomSlice
     }
 });
 
