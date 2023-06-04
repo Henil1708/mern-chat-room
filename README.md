@@ -23,7 +23,7 @@ npm install -g knex
 
 
 4. Create an `.env` file in the server folder and add the following variables with their corresponding values:
-
+```
 BASE_URL=
 NODE_ENV=
 DB_NAME=
@@ -34,16 +34,17 @@ DB_PORT=
 DB_CHARSET=
 PORT=
 JWT_SECRET_KEY=
+```
 
 5. Navigate to the server folder in your terminal and run the following command to install the server dependencies:
-
+```
 npm install
-
+```
 
 6. Build the server by running the following command:
-
+```
 npm run build
-
+```
 7. Navigate to the client folder in your terminal and run the following command to install the client dependencies:
 
 npm install
