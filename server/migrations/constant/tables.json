@@ -1,0 +1,7 @@
+{
+    "USER": "user",
+    "USER_SOCKET":"user_socket",
+    "ROOMS": "rooms",
+    "ROOM_MEMBERS": "room_members",
+    "ROOM_CHATS": "room_chats"
+}
