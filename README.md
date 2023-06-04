@@ -1,4 +1,4 @@
-# Read Me - Setup Instructions
+# CHAT ROOM - Setup Instructions
 
 This document provides step-by-step instructions for setting up and running the project.
 
