@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import reactLogo from "../logo.svg";
+import reactLogo from "../assets/logo.svg";
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import "../App.css"
 const AuthLayout = () => {
