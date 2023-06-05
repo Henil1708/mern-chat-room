@@ -4,6 +4,7 @@ import ChatLayout from "../layouts/ChatLayout";
 import { checkAuth, checkLogin } from "../utils/loaders/auth";
 import authRouter from "./auth";
 import chatRoutes from "./chat";
+import Error404 from "../pages/Errors/Error404";
 
 // Creating a new instance of the BrowserRouter with the given routes
 const routes = createBrowserRouter([
@@ -12,7 +13,7 @@ const routes = createBrowserRouter([
     path: "/",
     id: "root",
     // error page
-    // errorElement: <ErrorPage />,
+    errorElement: <Error404 />,
     // Child routes that will be rendered inside the root layout
     children: [
         // Route for the home page
