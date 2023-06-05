@@ -1,5 +1,5 @@
 import React from 'react'
-import Err404 from '../../404.svg';
+import Err404 from '../../assets/404.svg';
 import { Link } from 'react-router-dom';
 
 const Error404 = () => {

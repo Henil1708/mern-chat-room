@@ -1,5 +1,5 @@
 import React from 'react'
-import GroupChatSvg from "../../group-chat.svg";
+import GroupChatSvg from "../../assets/group-chat.svg";
 
 const Landing = () => {
   return (
